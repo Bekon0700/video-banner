@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Basic styles for links
+ */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(231, 231, 231);
+}
+
+.video-section {
+  width: 830px;
+  height: 293.82px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #FF9900;
+  background: #fff;
+}
+.video-section img {
+  cursor: pointer;
+}
+.video-section .info-section {
+  padding: 20px 34px;
+}
+.video-section .info-section .title {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 29.3px;
+  padding-top: 20px;
+}
+.video-section .info-section .author {
+  color: #828588;
+  font-size: 22px;
+  padding-top: 8px;
+  padding-bottom: 11px;
+}
+.video-section .info-section .author span {
+  color: #0097D7;
+}
+.video-section .info-section .star {
+  padding-bottom: 8px;
+}
+.video-section .info-section .rating {
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #828588;
+}
+.video-section .info-section .price-section {
+  padding-bottom: 18px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #828588;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.video-section .info-section .price-section .mrp {
+  color: #828588;
+  text-decoration: line-through;
+}
+.video-section .info-section .price-section .price {
+  color: #000;
+}
+.video-section .info-section .btn {
+  margin-bottom: 27.82px;
+  border: none;
+  background: #FF9900;
+  padding: 13px 45px 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.video-overlay {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  opacity: 0;
+}
+.video-overlay.active {
+  pointer-events: auto;
+  opacity: 1;
+  scale: 1;
+}
+.video-overlay.active .video-popup {
+  scale: 1;
+}
+.video-overlay .video-popup {
+  position: fixed;
+  width: 60%;
+  scale: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+}
+.video-overlay .video-popup iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.cross,
+.cross::before,
+.cross::after {
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.cross::before {
+  content: "";
+  height: 3px;
+  width: 25px;
+  transform: rotate(45deg);
+}
+
+.cross::after {
+  content: "";
+  height: 3px;
+  width: 25px;
+  transform: rotate(-45deg);
+}/*# sourceMappingURL=main.css.map */

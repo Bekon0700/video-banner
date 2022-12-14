@@ -1,0 +1,146 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(231, 231, 231);
+}
+
+.video-section {
+    width: 830px;
+    height: 293.82px;
+    display: flex;
+    align-items: center;
+    border: 2px solid $bg-color-btn;
+    background: #fff;
+
+    & img {
+        cursor: pointer;
+    }
+
+    & .info-section {
+        padding: 20px 34px;
+
+        & .title {
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 29.3px;
+            padding-top: 20px;
+        }
+
+        & .author {
+            color: $rating-color;
+            font-size: 22px;
+            padding-top: 8px;
+            padding-bottom: 11px;
+
+            & span {
+                color: $author-color;
+            }
+        }
+
+        & .star {
+            padding-bottom: 8px;
+        }
+
+        & .rating {
+            padding-bottom: 15px;
+            font-size: 15px;
+            font-weight: 400;
+            color: $rating-color;
+        }
+
+        & .price-section {
+            padding-bottom: 18px;
+            font-size: 25px;
+            font-weight: 500;
+            color: $rating-color;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+
+            & .mrp {
+                color: $rating-color;
+                text-decoration: line-through;
+            }
+
+            & .price {
+                color: #000;
+            }
+        }
+
+        & .btn {
+            margin-bottom: 27.82px;
+            border: none;
+            background: $bg-color-btn;
+            padding: 13px 45px 10px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+
+    }
+}
+
+.video-overlay {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    opacity: 0;
+
+
+    &.active {
+        pointer-events: auto;
+        opacity: 1;
+        scale: 1;
+
+        & .video-popup {
+            scale: 1;
+
+        }
+    }
+
+    & .video-popup {
+        position: fixed;
+        width: 60%;
+        scale: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease-in-out;
+
+        iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+    }
+}
+
+
+.cross,
+.cross::before,
+.cross::after {
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.cross::before {
+    content: '';
+    height: 3px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+
+.cross::after {
+    content: '';
+    height: 3px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
